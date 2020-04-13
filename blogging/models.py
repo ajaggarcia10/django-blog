@@ -13,7 +13,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-
 class Category(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField(blank=True)
@@ -24,3 +23,5 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
+
+0
