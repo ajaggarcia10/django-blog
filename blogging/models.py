@@ -13,6 +13,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
 class Category(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField(blank=True)
@@ -24,4 +25,17 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
 
-0
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=128)
+    text = models.TextField(blank=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now=True)
+    published_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        ordering = ['published_date']
+
+    def __str__(self):
+        return '{} by {} on {}'.format(self.text, self.author, self.created_date)
