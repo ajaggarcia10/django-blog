@@ -52,7 +52,7 @@ soupsieve==2.0
 sqlparse==0.3.1
 stevedore==1.31.0
 traitlets==4.3.3
-urllib3==1.22
+urllib3==1.24.2
 virtualenv==16.7.9
 virtualenv-clone==0.5.3
 wcwidth==0.1.8
